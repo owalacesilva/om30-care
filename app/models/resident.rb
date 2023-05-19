@@ -9,4 +9,5 @@ class Resident < ApplicationRecord
   validates :gender, presence: true
 
   #validates_with Validators::CpfDocumentValidator
+  validates_with Validators::EmailValidator
 end
