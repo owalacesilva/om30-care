@@ -1,7 +1,7 @@
 require 'rails_helper'
 
 RSpec.describe Town, type: :model do
-  context "when create an town" do
+  describe 'when create a town' do
     subject(:town) { create(:town) }
 
     it "creates new town" do
@@ -11,8 +11,8 @@ RSpec.describe Town, type: :model do
 
   describe ".associations" do
     subject { build(:town) }
-  
-    # it { is_expected.to belong_to(:role).class_name("Role") }
+
+    it { is_expected.to have_many(:resident).class_name('Resident') }
   end
 
   describe ".validations" do

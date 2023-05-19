@@ -10,10 +10,25 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2023_05_19_141414) do
+ActiveRecord::Schema.define(version: 2023_05_19_151656) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
+
+  create_table "residents", force: :cascade do |t|
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+    t.bigint "town_id", null: false
+    t.string "full_name", limit: 45, null: false
+    t.string "cpf", null: false
+    t.string "cns", null: false
+    t.string "email", null: false
+    t.string "gender", limit: 9, default: "undefined", null: false
+    t.date "birth_date"
+    t.string "phone_number"
+    t.boolean "active", default: true
+    t.index ["town_id"], name: "index_residents_on_town_id"
+  end
 
   create_table "towns", force: :cascade do |t|
     t.datetime "created_at", precision: 6, null: false
@@ -27,4 +42,5 @@ ActiveRecord::Schema.define(version: 2023_05_19_141414) do
     t.string "country_code"
   end
 
+  add_foreign_key "residents", "towns", on_update: :cascade, on_delete: :cascade
 end
