@@ -10,4 +10,5 @@ class Resident < ApplicationRecord
 
   #validates_with Validators::CpfDocumentValidator
   validates_with Validators::EmailValidator
+  validates_with Validators::BirthDateValidator
 end
