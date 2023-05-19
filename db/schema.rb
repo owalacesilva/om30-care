@@ -10,10 +10,37 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2023_05_19_151656) do
+ActiveRecord::Schema.define(version: 2023_05_19_203009) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
+
+  create_table "addresses", force: :cascade do |t|
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+    t.bigint "resident_id", null: false
+    t.string "first_name"
+    t.string "last_name"
+    t.string "phone_number"
+    t.string "alternative_phone_number"
+    t.string "company_name"
+    t.string "postal_code"
+    t.string "street_address"
+    t.string "building_number"
+    t.string "recipient"
+    t.string "apartament"
+    t.string "door_code"
+    t.string "floor"
+    t.string "neighborhood"
+    t.string "city"
+    t.string "state"
+    t.string "state_abbr"
+    t.string "country"
+    t.string "country_code"
+    t.string "latitude"
+    t.string "longitude"
+    t.index ["resident_id"], name: "index_addresses_on_resident_id"
+  end
 
   create_table "residents", force: :cascade do |t|
     t.datetime "created_at", precision: 6, null: false
@@ -42,5 +69,6 @@ ActiveRecord::Schema.define(version: 2023_05_19_151656) do
     t.string "country_code"
   end
 
+  add_foreign_key "addresses", "residents", on_update: :cascade, on_delete: :cascade
   add_foreign_key "residents", "towns", on_update: :cascade, on_delete: :cascade
 end
