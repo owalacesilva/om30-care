@@ -40,6 +40,7 @@ group :development, :test do
   gem 'byebug', platforms: [:mri, :mingw, :x64_mingw]
   gem 'guard-rspec'
   gem 'pry-byebug'
+  gem 'guard-rspec'
   gem 'reek'
   gem 'rspec-activemodel-mocks'
   gem 'rspec-collection_matchers'
