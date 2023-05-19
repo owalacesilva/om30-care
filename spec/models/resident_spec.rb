@@ -6,7 +6,6 @@ RSpec.describe Resident, type: :model do
   describe 'when create a resident' do
     subject(:resident) { create(:resident, town: town) }
 
-
     it 'creates new resident' do
       expect { resident }.to change(described_class, :count).by(1)
     end

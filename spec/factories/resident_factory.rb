@@ -3,7 +3,7 @@ FactoryBot.define do
     town { association :town }
 
     full_name { Faker::Name.first_name }
-    cpf { Faker::Name.first_name }
+    cpf { '406.814.578-48' }
     cns { Faker::Name.first_name }
     email { Faker::Internet.email }
     gender { 'undefined' }
