@@ -1,22 +1,22 @@
 {
   "$schema": "https://json-schema.org/draft-04/schema#",
-  "title": "town",
-  "description": "A town list",
+  "title": "Resident",
+  "description": "A resident list",
   "type": "object",
   "properties": {
     "count": {
       "type": "number",
-      "description": "town counter"
+      "description": "Resident counter"
     },
     "rows": {
       "type": "array",
       "items": {
         "type": "object",
-        "description": "town data",
+        "description": "Resident data",
         "properties": {
           "id": {
             "type": "number",
-            "description": "town id"
+            "description": "Resident id"
           }
         },
         "required": ["id"]

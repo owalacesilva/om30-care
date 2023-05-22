@@ -1,0 +1,20 @@
+{
+  "$schema": "https://json-schema.org/draft-04/schema#",
+  "title": "Resident",
+  "description": "A resident",
+  "type": "object",
+  "properties": {
+    "resident": {
+      "description": "Resident data",
+      "type": "object",
+      "properties": {
+        "id": {
+          "type": "number",
+          "description": "resident id"
+        }
+      },
+      "required": ["id"]
+    }
+  },
+  "required": ["resident"]
+}

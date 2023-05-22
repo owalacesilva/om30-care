@@ -12,7 +12,7 @@ RSpec.describe Town, type: :model do
   describe ".associations" do
     subject { build(:town) }
 
-    it { is_expected.to have_many(:resident).class_name('Resident') }
+    it { is_expected.to have_many(:residents).class_name('Resident') }
   end
 
   describe ".validations" do
