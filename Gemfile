@@ -74,6 +74,7 @@ group :test do
   gem 'mock_redis'
   gem 'selenium-webdriver'
   gem 'shoulda-matchers', require: false
+  gem 'json_matchers'
   gem 'simplecov', require: false
   gem 'simplecov-json', require: false
   gem 'vcr', require: false
