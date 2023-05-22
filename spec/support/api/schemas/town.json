@@ -1,0 +1,20 @@
+{
+  "$schema": "https://json-schema.org/draft-04/schema#",
+  "title": "Town",
+  "description": "A town",
+  "type": "object",
+  "properties": {
+    "town": {
+      "description": "Town data",
+      "type": "object",
+      "properties": {
+        "id": {
+          "type": "number",
+          "description": "town id"
+        }
+      },
+      "required": ["id"]
+    }
+  },
+  "required": ["town"]
+}
