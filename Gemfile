@@ -35,6 +35,7 @@ gem 'bootsnap', require: false
 gem 'factory_bot_rails', git: 'https://github.com/thoughtbot/factory_bot_rails'
 gem 'faker', git: 'https://github.com/stympy/faker'
 gem 'cpf_faker'
+gem 'webpacker', '~> 4.3.x'
 
 group :development, :test do
   # Call 'byebug' anywhere in the code to stop execution and get a debugger console
