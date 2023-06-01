@@ -1,6 +1,7 @@
 class TownsController < ApplicationController
   respond_to? :json
   wrap_parameters :town, format: [:json, :url_encoded_form]
+  skip_before_action :verify_authenticity_token
 
   def index
     towns = Town.all
