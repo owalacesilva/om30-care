@@ -1,51 +1,52 @@
 /*
  *
- * TownListPage reducer
+ * TownModal reducer
  *
  */
+
 import {
-  GET_TOWN_LIST_SUCCESSED,
-  GET_TOWN_LIST_FAILURE,
-  GET_TOWN_LIST_LOADING,
-  GET_TOWN_LIST_SUBMITTING,
+  POST_TOWN_SUCCESSED,
+  POST_TOWN_FAILURE,
+  POST_TOWN_LOADING,
+  POST_TOWN_SUBMITTING
 } from './constants';
 
 export const initialState = {
   isLoading: false,
   errorMessage: '',
-  townList: [],
+  townData: {},
 };
 
 /* eslint-disable default-case, no-param-reassign */
-const townListPageReducer = (state = initialState, action) => {
+const townModalReducer = (state = initialState, action) => {
   switch (action.type) {
-    case GET_TOWN_LIST_SUBMITTING:
+    case POST_TOWN_SUBMITTING:
       return { 
         ...state,
         isLoading: false,
       }
-    case GET_TOWN_LIST_LOADING:
+    case POST_TOWN_LOADING:
       return { 
         ...state,
         isLoading: true,
         errorMessage: '',
       }
-    case GET_TOWN_LIST_SUCCESSED:
+    case POST_TOWN_SUCCESSED:
       return { 
         ...state,
         isLoading: false,
         errorMessage: '',
-        townList: action.townList,
+        townData: { ...state.townData },
       }
-    case GET_TOWN_LIST_FAILURE:
+    case POST_TOWN_FAILURE:
       return { 
         ...state,
         isLoading: false,
-        errorMessage: action.errorMessage,
+        errorMessage: state.errorMessage,
       }
     default:
       return state;
   }
 };
 
-export default townListPageReducer;
+export default townModalReducer;

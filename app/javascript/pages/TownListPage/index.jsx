@@ -4,15 +4,24 @@
  *
  */
 
-import React, { useEffect, useState } from 'react';
-import { getTownList } from './actions';
+import React, { useEffect } from 'react';
+import { getTownListAction } from './actions';
 /* import Header from '../components/Header'; */
 /* import TownList from '../components/TownList'; */
-import { Layout, Row, Col, Input, Button, List, Form, Icon } from 'antd';
-import { connect, useDispatch } from 'react-redux';
-import { isArray } from '@rails/webpacker/package/utils/helpers';
+import { Row, Col } from 'antd';
+import { connect } from 'react-redux';
+import TownModal from '../../components/TownModal';
 
-const TownListPage = ({ townList, getTownList }) => {
+const TownListPage = ({
+  isLoading,
+  errorMessage,
+  townList,
+  getTownList,
+}) => {
+  useEffect(() => {
+    getTownList();
+  }, []);
+
   return <>
     { /* Town list */ }
     <Row>
@@ -21,21 +30,22 @@ const TownListPage = ({ townList, getTownList }) => {
           <span>{town.display_name}</span>
         </Col>
       ))}
-      <Button onClick={() => alert('add')}>
-        <span>Add</span>
-      </Button>
+      <TownModal
+        onAfterClose={() => getTownList()}
+        />
     </Row>
   </>
 }
 
 TownListPage.propTypes = {};
 
-const mapStateToPros = ({ townListPageReducer } /* state */) => ({
+const mapStateToProps = ({ townListPageReducer } /* state */) => ({
+  isLoading: townListPageReducer.isLoading,
+  errorMessage: townListPageReducer.errorMessage,
   townList: townListPageReducer.townList,
 });
+const mapDispatchToProps = dispatch => ({
+  getTownList: () => dispatch(getTownListAction()),
+});
 
-const mapDispatchToPros = dispatch => ({
-  getTownList: dispatch(getTownList()),
-})
-
-export default connect(mapStateToPros, mapDispatchToPros)(TownListPage);
+export default connect(mapStateToProps, mapDispatchToProps)(TownListPage);
