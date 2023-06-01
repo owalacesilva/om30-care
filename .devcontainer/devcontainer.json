@@ -48,6 +48,8 @@
     // will be detected based on the file contents. Set to false to keep
     // the values you've explicitly set, above.
     "editor.detectIndentation": false,
+    "editor.cursorBlinking": "smooth",
+    "editor.cursorSmoothCaretAnimation": "on",
     "solargraph.useBundler": true,
     "solargraph.diagnostics": true,
     "solargraph.formatting": true
