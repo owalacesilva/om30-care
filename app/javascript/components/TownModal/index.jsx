@@ -17,7 +17,7 @@ const TownModal = ({
   submitTown,
   onAfterClose
 }) => {
-  const [modalIsOpen, setModalIsOpen] = useState(true);
+  const [modalIsOpen, setModalIsOpen] = useState(false);
   const [displayName, setDisplayName] = useState('test');
   const [description, setDescription] = useState('test');
   const [url, setUrl] = useState('test');
