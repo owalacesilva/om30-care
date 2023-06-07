@@ -1,12 +1,13 @@
 import React from "react";
-import { BrowserRouter as Router, Route, Switch } from "react-router-dom";
+import { HashRouter, Route, Switch } from 'react-router-dom';
 import TownListPage from "../pages/TownListPage";
+import TownPage from "../pages/TownPage";
 
 export default (
-  <Router>
+  <HashRouter>
     <Switch>
       <Route path="/" exact component={TownListPage} />
-      <Route path="/:slug" exact component={TownListPage} />
+      <Route path="/:slug" exact component={TownPage} />
     </Switch>
-  </Router>
+  </HashRouter>
 );
